@@ -1,0 +1,1 @@
+# NAID-assiative-technologies-intern-tasks

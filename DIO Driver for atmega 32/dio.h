@@ -75,7 +75,6 @@ typedef unsigned long int uint32_t;
  * 				PinVal, Range: [DIO_LOW, DIO_HIGH]
  * Return     : Void
  *
- *  naming rules: indicates the return type and functioning
  *******************************************************************/
 void DIO_SetPinVal(uint8_t PortId, uint8_t PinId, uint8_t PinVal);
 

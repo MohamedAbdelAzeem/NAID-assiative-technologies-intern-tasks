@@ -1,0 +1,486 @@
+
+timer.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000b4  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  0000030a  0000039e  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  0000039e  2**0
+                  CONTENTS, READONLY
+  3 .debug_aranges 000000c0  00000000  00000000  000003cd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000010f5  00000000  00000000  0000048d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000688  00000000  00000000  00001582  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   0000049a  00000000  00000000  00001c0a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000230  00000000  00000000  000020a4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    000001c5  00000000  00000000  000022d4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    000002d0  00000000  00000000  00002499  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 000000a0  00000000  00000000  00002769  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .text         00000004  000002fe  000002fe  00000392  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000280c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .text.TIMER1_ISR 0000002a  000002ca  000002ca  0000035e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .rodata       00000008  00800060  00000302  00000396  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 15 .text.main    00000044  00000286  00000286  0000031a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .bss.g_TIMER0_counter 00000002  00800068  00800068  0000039e  2**0
+                  ALLOC
+ 17 .text.__vector_10 0000004e  0000019c  0000019c  00000230  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text.__vector_4 0000004e  000001ea  000001ea  0000027e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.__vector_7 0000004e  00000238  00000238  000002cc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.Timer_start 000000e8  000000b4  000000b4  00000148  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text.Timer1_COMPA_ISR_setCallBack 0000000a  000002f4  000002f4  00000388  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .bss.g_callBackPtrTimer2CTC 00000002  0080006a  0080006a  0000039e  2**0
+                  ALLOC
+ 23 .bss.g_callBackPtrTimer1COMPA 00000002  0080006c  0080006c  0000039e  2**0
+                  ALLOC
+ 24 .bss.g_callBackPtrTimer0CTC 00000002  0080006e  0080006e  0000039e  2**0
+                  ALLOC
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 30 00 	jmp	0x60	; 0x60 <__ctors_end>
+   4:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+   8:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+   c:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+  10:	0c 94 f5 00 	jmp	0x1ea	; 0x1ea <__vector_4>
+  14:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+  18:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+  1c:	0c 94 1c 01 	jmp	0x238	; 0x238 <__vector_7>
+  20:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+  24:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+  28:	0c 94 ce 00 	jmp	0x19c	; 0x19c <__vector_10>
+  2c:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+  30:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+  34:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+  38:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+  3c:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+  40:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+  44:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+  48:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+  4c:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+  50:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+
+00000054 <.dinit>:
+  54:	00 60       	ori	r16, 0x00	; 0
+  56:	00 68       	ori	r16, 0x80	; 128
+  58:	00 03       	mulsu	r16, r16
+  5a:	02 00       	.word	0x0002	; ????
+  5c:	68 00       	.word	0x0068	; ????
+  5e:	70 80       	ld	r7, Z
+
+00000060 <__ctors_end>:
+  60:	11 24       	eor	r1, r1
+  62:	1f be       	out	0x3f, r1	; 63
+  64:	cf e5       	ldi	r28, 0x5F	; 95
+  66:	d8 e0       	ldi	r29, 0x08	; 8
+  68:	de bf       	out	0x3e, r29	; 62
+  6a:	cd bf       	out	0x3d, r28	; 61
+
+0000006c <__do_copy_data>:
+  6c:	e4 e5       	ldi	r30, 0x54	; 84
+  6e:	f0 e0       	ldi	r31, 0x00	; 0
+  70:	40 e0       	ldi	r20, 0x00	; 0
+  72:	17 c0       	rjmp	.+46     	; 0xa2 <__do_clear_bss+0x8>
+  74:	b5 91       	lpm	r27, Z+
+  76:	a5 91       	lpm	r26, Z+
+  78:	35 91       	lpm	r19, Z+
+  7a:	25 91       	lpm	r18, Z+
+  7c:	05 91       	lpm	r16, Z+
+  7e:	07 fd       	sbrc	r16, 7
+  80:	0c c0       	rjmp	.+24     	; 0x9a <__do_clear_bss>
+  82:	95 91       	lpm	r25, Z+
+  84:	85 91       	lpm	r24, Z+
+  86:	ef 01       	movw	r28, r30
+  88:	f9 2f       	mov	r31, r25
+  8a:	e8 2f       	mov	r30, r24
+  8c:	05 90       	lpm	r0, Z+
+  8e:	0d 92       	st	X+, r0
+  90:	a2 17       	cp	r26, r18
+  92:	b3 07       	cpc	r27, r19
+  94:	d9 f7       	brne	.-10     	; 0x8c <__do_copy_data+0x20>
+  96:	fe 01       	movw	r30, r28
+  98:	04 c0       	rjmp	.+8      	; 0xa2 <__do_clear_bss+0x8>
+
+0000009a <__do_clear_bss>:
+  9a:	1d 92       	st	X+, r1
+  9c:	a2 17       	cp	r26, r18
+  9e:	b3 07       	cpc	r27, r19
+  a0:	e1 f7       	brne	.-8      	; 0x9a <__do_clear_bss>
+  a2:	e0 36       	cpi	r30, 0x60	; 96
+  a4:	f4 07       	cpc	r31, r20
+  a6:	31 f7       	brne	.-52     	; 0x74 <__do_copy_data+0x8>
+  a8:	0e 94 43 01 	call	0x286	; 0x286 <main>
+  ac:	0c 94 58 00 	jmp	0xb0	; 0xb0 <_exit>
+
+000000b0 <_exit>:
+  b0:	f8 94       	cli
+
+000000b2 <__stop_program>:
+  b2:	ff cf       	rjmp	.-2      	; 0xb2 <__stop_program>
+
+Disassembly of section .text:
+
+000002fe <__bad_interrupt>:
+ 2fe:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.TIMER1_ISR:
+
+000002ca <TIMER1_ISR>:
+
+/* default FCPU  = 1 Mhz */
+uint32_t g_TIMER0_counter = 0 ;
+void TIMER1_ISR(void)
+{
+		g_TIMER0_counter++;
+ 2ca:	80 91 68 00 	lds	r24, 0x0068	; 0x800068 <g_TIMER0_counter>
+ 2ce:	90 91 69 00 	lds	r25, 0x0069	; 0x800069 <g_TIMER0_counter+0x1>
+ 2d2:	01 96       	adiw	r24, 0x01	; 1
+ 2d4:	90 93 69 00 	sts	0x0069, r25	; 0x800069 <g_TIMER0_counter+0x1>
+ 2d8:	80 93 68 00 	sts	0x0068, r24	; 0x800068 <g_TIMER0_counter>
+		if(g_TIMER0_counter == 1500)
+ 2dc:	8c 3d       	cpi	r24, 0xDC	; 220
+ 2de:	95 40       	sbci	r25, 0x05	; 5
+ 2e0:	41 f4       	brne	.+16     	; 0x2f2 <TIMER1_ISR+0x28>
+		{
+			TOGGLE_BIT(PORTC, PC0);
+ 2e2:	95 b3       	in	r25, 0x15	; 21
+ 2e4:	81 e0       	ldi	r24, 0x01	; 1
+ 2e6:	89 27       	eor	r24, r25
+ 2e8:	85 bb       	out	0x15, r24	; 21
+			g_TIMER0_counter = 0;
+ 2ea:	10 92 69 00 	sts	0x0069, r1	; 0x800069 <g_TIMER0_counter+0x1>
+ 2ee:	10 92 68 00 	sts	0x0068, r1	; 0x800068 <g_TIMER0_counter>
+ 2f2:	08 95       	ret
+
+Disassembly of section .text.main:
+
+00000286 <main>:
+		}	
+}
+
+int main(void)
+{
+ 286:	cf 93       	push	r28
+ 288:	df 93       	push	r29
+ 28a:	cd b7       	in	r28, 0x3d	; 61
+ 28c:	de b7       	in	r29, 0x3e	; 62
+ 28e:	28 97       	sbiw	r28, 0x08	; 8
+ 290:	0f b6       	in	r0, 0x3f	; 63
+ 292:	f8 94       	cli
+ 294:	de bf       	out	0x3e, r29	; 62
+ 296:	0f be       	out	0x3f, r0	; 63
+ 298:	cd bf       	out	0x3d, r28	; 61
+	
+	SET_BIT(DDRC, PC0); // Configure the led pin as output pin.
+ 29a:	84 b3       	in	r24, 0x14	; 20
+ 29c:	81 60       	ori	r24, 0x01	; 1
+ 29e:	84 bb       	out	0x14, r24	; 20
+	CLEAR_BIT(PORTC, PC0); // LED is OFF at the beginning (Positive Logic).	
+ 2a0:	85 b3       	in	r24, 0x15	; 21
+ 2a2:	8e 7f       	andi	r24, 0xFE	; 254
+ 2a4:	85 bb       	out	0x15, r24	; 21
+	
+	
+	
+	//Interrupt
+	Timer1_COMPA_ISR_setCallBack(TIMER1_ISR);
+ 2a6:	85 e6       	ldi	r24, 0x65	; 101
+ 2a8:	91 e0       	ldi	r25, 0x01	; 1
+ 2aa:	0e 94 7a 01 	call	0x2f4	; 0x2f4 <Timer1_COMPA_ISR_setCallBack>
+	St_Config_Timer_t timer0_config1 = {TIMER1, COMPARE_MODE_toggel , INTERNAL_CLK_PRESCALAR0_1 , DEFAULT_INITIAL_VALUE,200,CHANNEL_A};
+ 2ae:	88 e0       	ldi	r24, 0x08	; 8
+ 2b0:	e0 e6       	ldi	r30, 0x60	; 96
+ 2b2:	f0 e0       	ldi	r31, 0x00	; 0
+ 2b4:	de 01       	movw	r26, r28
+ 2b6:	11 96       	adiw	r26, 0x01	; 1
+ 2b8:	01 90       	ld	r0, Z+
+ 2ba:	0d 92       	st	X+, r0
+ 2bc:	8a 95       	dec	r24
+ 2be:	e1 f7       	brne	.-8      	; 0x2b8 <main+0x32>
+
+	Timer_start(&timer0_config1);
+ 2c0:	ce 01       	movw	r24, r28
+ 2c2:	01 96       	adiw	r24, 0x01	; 1
+ 2c4:	0e 94 5a 00 	call	0xb4	; 0xb4 <__data_load_end>
+ 2c8:	ff cf       	rjmp	.-2      	; 0x2c8 <main+0x42>
+
+Disassembly of section .text.__vector_10:
+
+0000019c <__vector_10>:
+	/* Save the address of the Call back function in a global variable */
+	g_callBackPtrTimer2CTC = a_ptr;
+}
+
+void Timer1_Overflow_ISR_setCallBack(void(*a_ptr)(void))
+{
+ 19c:	1f 92       	push	r1
+ 19e:	0f 92       	push	r0
+ 1a0:	0f b6       	in	r0, 0x3f	; 63
+ 1a2:	0f 92       	push	r0
+ 1a4:	11 24       	eor	r1, r1
+ 1a6:	2f 93       	push	r18
+ 1a8:	3f 93       	push	r19
+ 1aa:	4f 93       	push	r20
+ 1ac:	5f 93       	push	r21
+ 1ae:	6f 93       	push	r22
+ 1b0:	7f 93       	push	r23
+ 1b2:	8f 93       	push	r24
+ 1b4:	9f 93       	push	r25
+ 1b6:	af 93       	push	r26
+ 1b8:	bf 93       	push	r27
+ 1ba:	ef 93       	push	r30
+ 1bc:	ff 93       	push	r31
+ 1be:	e0 91 6e 00 	lds	r30, 0x006E	; 0x80006e <g_callBackPtrTimer0CTC>
+ 1c2:	f0 91 6f 00 	lds	r31, 0x006F	; 0x80006f <g_callBackPtrTimer0CTC+0x1>
+ 1c6:	09 95       	icall
+ 1c8:	ff 91       	pop	r31
+ 1ca:	ef 91       	pop	r30
+ 1cc:	bf 91       	pop	r27
+ 1ce:	af 91       	pop	r26
+ 1d0:	9f 91       	pop	r25
+ 1d2:	8f 91       	pop	r24
+ 1d4:	7f 91       	pop	r23
+ 1d6:	6f 91       	pop	r22
+ 1d8:	5f 91       	pop	r21
+ 1da:	4f 91       	pop	r20
+ 1dc:	3f 91       	pop	r19
+ 1de:	2f 91       	pop	r18
+ 1e0:	0f 90       	pop	r0
+ 1e2:	0f be       	out	0x3f, r0	; 63
+ 1e4:	0f 90       	pop	r0
+ 1e6:	1f 90       	pop	r1
+ 1e8:	18 95       	reti
+
+Disassembly of section .text.__vector_4:
+
+000001ea <__vector_4>:
+ 1ea:	1f 92       	push	r1
+ 1ec:	0f 92       	push	r0
+ 1ee:	0f b6       	in	r0, 0x3f	; 63
+ 1f0:	0f 92       	push	r0
+ 1f2:	11 24       	eor	r1, r1
+ 1f4:	2f 93       	push	r18
+ 1f6:	3f 93       	push	r19
+ 1f8:	4f 93       	push	r20
+ 1fa:	5f 93       	push	r21
+ 1fc:	6f 93       	push	r22
+ 1fe:	7f 93       	push	r23
+ 200:	8f 93       	push	r24
+ 202:	9f 93       	push	r25
+ 204:	af 93       	push	r26
+ 206:	bf 93       	push	r27
+ 208:	ef 93       	push	r30
+ 20a:	ff 93       	push	r31
+ 20c:	e0 91 6a 00 	lds	r30, 0x006A	; 0x80006a <g_callBackPtrTimer2CTC>
+ 210:	f0 91 6b 00 	lds	r31, 0x006B	; 0x80006b <g_callBackPtrTimer2CTC+0x1>
+ 214:	09 95       	icall
+ 216:	ff 91       	pop	r31
+ 218:	ef 91       	pop	r30
+ 21a:	bf 91       	pop	r27
+ 21c:	af 91       	pop	r26
+ 21e:	9f 91       	pop	r25
+ 220:	8f 91       	pop	r24
+ 222:	7f 91       	pop	r23
+ 224:	6f 91       	pop	r22
+ 226:	5f 91       	pop	r21
+ 228:	4f 91       	pop	r20
+ 22a:	3f 91       	pop	r19
+ 22c:	2f 91       	pop	r18
+ 22e:	0f 90       	pop	r0
+ 230:	0f be       	out	0x3f, r0	; 63
+ 232:	0f 90       	pop	r0
+ 234:	1f 90       	pop	r1
+ 236:	18 95       	reti
+
+Disassembly of section .text.__vector_7:
+
+00000238 <__vector_7>:
+ 238:	1f 92       	push	r1
+ 23a:	0f 92       	push	r0
+ 23c:	0f b6       	in	r0, 0x3f	; 63
+ 23e:	0f 92       	push	r0
+ 240:	11 24       	eor	r1, r1
+ 242:	2f 93       	push	r18
+ 244:	3f 93       	push	r19
+ 246:	4f 93       	push	r20
+ 248:	5f 93       	push	r21
+ 24a:	6f 93       	push	r22
+ 24c:	7f 93       	push	r23
+ 24e:	8f 93       	push	r24
+ 250:	9f 93       	push	r25
+ 252:	af 93       	push	r26
+ 254:	bf 93       	push	r27
+ 256:	ef 93       	push	r30
+ 258:	ff 93       	push	r31
+ 25a:	e0 91 6c 00 	lds	r30, 0x006C	; 0x80006c <g_callBackPtrTimer1COMPA>
+ 25e:	f0 91 6d 00 	lds	r31, 0x006D	; 0x80006d <g_callBackPtrTimer1COMPA+0x1>
+ 262:	09 95       	icall
+ 264:	ff 91       	pop	r31
+ 266:	ef 91       	pop	r30
+ 268:	bf 91       	pop	r27
+ 26a:	af 91       	pop	r26
+ 26c:	9f 91       	pop	r25
+ 26e:	8f 91       	pop	r24
+ 270:	7f 91       	pop	r23
+ 272:	6f 91       	pop	r22
+ 274:	5f 91       	pop	r21
+ 276:	4f 91       	pop	r20
+ 278:	3f 91       	pop	r19
+ 27a:	2f 91       	pop	r18
+ 27c:	0f 90       	pop	r0
+ 27e:	0f be       	out	0x3f, r0	; 63
+ 280:	0f 90       	pop	r0
+ 282:	1f 90       	pop	r1
+ 284:	18 95       	reti
+
+Disassembly of section .text.Timer_start:
+
+000000b4 <Timer_start>:
+  b4:	fc 01       	movw	r30, r24
+  b6:	80 81       	ld	r24, Z
+  b8:	81 30       	cpi	r24, 0x01	; 1
+  ba:	c1 f1       	breq	.+112    	; 0x12c <Timer_start+0x78>
+  bc:	18 f0       	brcs	.+6      	; 0xc4 <Timer_start+0x10>
+  be:	82 30       	cpi	r24, 0x02	; 2
+  c0:	e1 f0       	breq	.+56     	; 0xfa <Timer_start+0x46>
+  c2:	08 95       	ret
+  c4:	93 b7       	in	r25, 0x33	; 51
+  c6:	81 81       	ldd	r24, Z+1	; 0x01
+  c8:	89 2b       	or	r24, r25
+  ca:	83 bf       	out	0x33, r24	; 51
+  cc:	93 b7       	in	r25, 0x33	; 51
+  ce:	82 81       	ldd	r24, Z+2	; 0x02
+  d0:	87 70       	andi	r24, 0x07	; 7
+  d2:	89 2b       	or	r24, r25
+  d4:	83 bf       	out	0x33, r24	; 51
+  d6:	83 81       	ldd	r24, Z+3	; 0x03
+  d8:	82 bf       	out	0x32, r24	; 50
+  da:	85 81       	ldd	r24, Z+5	; 0x05
+  dc:	8c bf       	out	0x3c, r24	; 60
+  de:	8f b7       	in	r24, 0x3f	; 63
+  e0:	80 68       	ori	r24, 0x80	; 128
+  e2:	8f bf       	out	0x3f, r24	; 63
+  e4:	03 b6       	in	r0, 0x33	; 51
+  e6:	03 fe       	sbrs	r0, 3
+  e8:	04 c0       	rjmp	.+8      	; 0xf2 <Timer_start+0x3e>
+  ea:	89 b7       	in	r24, 0x39	; 57
+  ec:	82 60       	ori	r24, 0x02	; 2
+  ee:	89 bf       	out	0x39, r24	; 57
+  f0:	08 95       	ret
+  f2:	89 b7       	in	r24, 0x39	; 57
+  f4:	81 60       	ori	r24, 0x01	; 1
+  f6:	89 bf       	out	0x39, r24	; 57
+  f8:	08 95       	ret
+  fa:	81 81       	ldd	r24, Z+1	; 0x01
+  fc:	85 bd       	out	0x25, r24	; 37
+  fe:	95 b5       	in	r25, 0x25	; 37
+ 100:	82 81       	ldd	r24, Z+2	; 0x02
+ 102:	87 70       	andi	r24, 0x07	; 7
+ 104:	89 2b       	or	r24, r25
+ 106:	85 bd       	out	0x25, r24	; 37
+ 108:	83 81       	ldd	r24, Z+3	; 0x03
+ 10a:	84 bd       	out	0x24, r24	; 36
+ 10c:	85 81       	ldd	r24, Z+5	; 0x05
+ 10e:	83 bd       	out	0x23, r24	; 35
+ 110:	8f b7       	in	r24, 0x3f	; 63
+ 112:	80 68       	ori	r24, 0x80	; 128
+ 114:	8f bf       	out	0x3f, r24	; 63
+ 116:	05 b4       	in	r0, 0x25	; 37
+ 118:	03 fe       	sbrs	r0, 3
+ 11a:	04 c0       	rjmp	.+8      	; 0x124 <Timer_start+0x70>
+ 11c:	89 b7       	in	r24, 0x39	; 57
+ 11e:	80 68       	ori	r24, 0x80	; 128
+ 120:	89 bf       	out	0x39, r24	; 57
+ 122:	08 95       	ret
+ 124:	89 b7       	in	r24, 0x39	; 57
+ 126:	80 64       	ori	r24, 0x40	; 64
+ 128:	89 bf       	out	0x39, r24	; 57
+ 12a:	08 95       	ret
+ 12c:	83 81       	ldd	r24, Z+3	; 0x03
+ 12e:	8c b9       	out	0x0c, r24	; 12
+ 130:	81 81       	ldd	r24, Z+1	; 0x01
+ 132:	80 38       	cpi	r24, 0x80	; 128
+ 134:	69 f4       	brne	.+26     	; 0x150 <Timer_start+0x9c>
+ 136:	8f b7       	in	r24, 0x3f	; 63
+ 138:	80 68       	ori	r24, 0x80	; 128
+ 13a:	8f bf       	out	0x3f, r24	; 63
+ 13c:	89 b7       	in	r24, 0x39	; 57
+ 13e:	84 60       	ori	r24, 0x04	; 4
+ 140:	89 bf       	out	0x39, r24	; 57
+ 142:	8c e0       	ldi	r24, 0x0C	; 12
+ 144:	8f bd       	out	0x2f, r24	; 47
+ 146:	9e b5       	in	r25, 0x2e	; 46
+ 148:	82 81       	ldd	r24, Z+2	; 0x02
+ 14a:	89 2b       	or	r24, r25
+ 14c:	8e bd       	out	0x2e, r24	; 46
+ 14e:	08 95       	ret
+ 150:	88 38       	cpi	r24, 0x88	; 136
+ 152:	19 f5       	brne	.+70     	; 0x19a <Timer_start+0xe6>
+ 154:	8c e0       	ldi	r24, 0x0C	; 12
+ 156:	8f bd       	out	0x2f, r24	; 47
+ 158:	8e b5       	in	r24, 0x2e	; 46
+ 15a:	88 60       	ori	r24, 0x08	; 8
+ 15c:	8e bd       	out	0x2e, r24	; 46
+ 15e:	87 81       	ldd	r24, Z+7	; 0x07
+ 160:	81 11       	cpse	r24, r1
+ 162:	0b c0       	rjmp	.+22     	; 0x17a <Timer_start+0xc6>
+ 164:	8f b7       	in	r24, 0x3f	; 63
+ 166:	80 68       	ori	r24, 0x80	; 128
+ 168:	8f bf       	out	0x3f, r24	; 63
+ 16a:	89 b7       	in	r24, 0x39	; 57
+ 16c:	80 61       	ori	r24, 0x10	; 16
+ 16e:	89 bf       	out	0x39, r24	; 57
+ 170:	85 81       	ldd	r24, Z+5	; 0x05
+ 172:	8a bd       	out	0x2a, r24	; 42
+ 174:	86 81       	ldd	r24, Z+6	; 0x06
+ 176:	8b bd       	out	0x2b, r24	; 43
+ 178:	0c c0       	rjmp	.+24     	; 0x192 <Timer_start+0xde>
+ 17a:	81 30       	cpi	r24, 0x01	; 1
+ 17c:	51 f4       	brne	.+20     	; 0x192 <Timer_start+0xde>
+ 17e:	8f b7       	in	r24, 0x3f	; 63
+ 180:	80 68       	ori	r24, 0x80	; 128
+ 182:	8f bf       	out	0x3f, r24	; 63
+ 184:	89 b7       	in	r24, 0x39	; 57
+ 186:	88 60       	ori	r24, 0x08	; 8
+ 188:	89 bf       	out	0x39, r24	; 57
+ 18a:	85 81       	ldd	r24, Z+5	; 0x05
+ 18c:	8a bd       	out	0x2a, r24	; 42
+ 18e:	86 81       	ldd	r24, Z+6	; 0x06
+ 190:	8b bd       	out	0x2b, r24	; 43
+ 192:	9e b5       	in	r25, 0x2e	; 46
+ 194:	82 81       	ldd	r24, Z+2	; 0x02
+ 196:	89 2b       	or	r24, r25
+ 198:	8e bd       	out	0x2e, r24	; 46
+ 19a:	08 95       	ret
+
+Disassembly of section .text.Timer1_COMPA_ISR_setCallBack:
+
+000002f4 <Timer1_COMPA_ISR_setCallBack>:
+}
+
+void Timer1_COMPA_ISR_setCallBack(void(*a_ptr)(void))
+{
+	/* Save the address of the Call back function in a global variable */
+	g_callBackPtrTimer1COMPA = a_ptr;
+ 2f4:	90 93 6d 00 	sts	0x006D, r25	; 0x80006d <g_callBackPtrTimer1COMPA+0x1>
+ 2f8:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <g_callBackPtrTimer1COMPA>
+ 2fc:	08 95       	ret

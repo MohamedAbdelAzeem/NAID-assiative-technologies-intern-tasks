@@ -5,7 +5,7 @@
  *  Author: Mohamed AbdelAzeem
  */ 
 
-#include "timer.h"
+#include "MCAL/timer/timer.h"
 
 /* default FCPU  = 1 Mhz */
 uint32_t g_TIMER0_counter = 0 ;
@@ -28,30 +28,23 @@ int main(void)
 	
 	
 	//Interrupt
-	Timer1_COMPA_ISR_setCallBack(TIMER1_ISR);
+/*	Timer1_COMPA_ISR_setCallBack(TIMER1_ISR);
+	St_Config_Timer_t timer0_config1 = {TIMER1, COMPARE_MODE_toggel , INTERNAL_CLK_PRESCALAR0_1 , DEFAULT_INITIAL_VALUE,200,CHANNEL_A};
+
+	Timer_start(&timer0_config1);*/
+    
+	
 	St_Config_Timer_t timer0_config1 = {TIMER1, COMPARE_MODE_toggel , INTERNAL_CLK_PRESCALAR0_1 , DEFAULT_INITIAL_VALUE,200,CHANNEL_A};
 
 	Timer_start(&timer0_config1);
-    
-	
-	/*St_Config_Timer_t timer0_config1 = {TIMER1, COMPARE_MODE_toggel , INTERNAL_CLK_PRESCALAR0_1 , DEFAULT_INITIAL_VALUE,200,CHANNEL_A};
-
-	Timer_start(&timer0_config1);*/
 
 	
 
     while(1)
     {
-		/*if(Timer1A_CTC_flag())
-		{
-			g_TIMER0_counter++;
-			if(g_TIMER0_counter == 1500 )
-			{
-				TOGGLE_BIT(PORTC, PC0);
-				g_TIMER0_counter=0;
-			}
 		
-		}*/
-		
+		delay_ms(500);
+		TOGGLE_BIT(PORTC, PC0);
+
     }
 }

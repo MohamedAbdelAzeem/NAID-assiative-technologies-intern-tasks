@@ -5,87 +5,87 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         000000b4  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  0000030a  0000039e  2**0
+  1 .data         00000000  00800060  0000037e  00000412  2**0
                   ALLOC, LOAD, DATA
-  2 .comment      0000002f  00000000  00000000  0000039e  2**0
+  2 .comment      0000002f  00000000  00000000  00000412  2**0
                   CONTENTS, READONLY
-  3 .debug_aranges 000000c0  00000000  00000000  000003cd  2**0
+  3 .debug_aranges 000000e8  00000000  00000000  00000441  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_info   000010f5  00000000  00000000  0000048d  2**0
+  4 .debug_info   00001579  00000000  00000000  00000529  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_abbrev 00000688  00000000  00000000  00001582  2**0
+  5 .debug_abbrev 0000077d  00000000  00000000  00001aa2  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_line   0000049a  00000000  00000000  00001c0a  2**0
+  6 .debug_line   000005a9  00000000  00000000  0000221f  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_frame  00000230  00000000  00000000  000020a4  2**2
+  7 .debug_frame  000002ac  00000000  00000000  000027c8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_str    000001c5  00000000  00000000  000022d4  2**0
+  8 .debug_str    000001dd  00000000  00000000  00002a74  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_loc    000002d0  00000000  00000000  00002499  2**0
+  9 .debug_loc    0000047a  00000000  00000000  00002c51  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 000000a0  00000000  00000000  00002769  2**0
+ 10 .debug_ranges 000000b8  00000000  00000000  000030cb  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .text         00000004  000002fe  000002fe  00000392  2**1
+ 11 .text         00000004  00000362  00000362  000003f6  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000280c  2**2
+ 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00003184  2**2
                   CONTENTS, READONLY, DEBUGGING
- 13 .text.TIMER1_ISR 0000002a  000002ca  000002ca  0000035e  2**1
-                  CONTENTS, ALLOC, LOAD, READONLY, CODE
- 14 .rodata       00000008  00800060  00000302  00000396  2**0
+ 13 .rodata       00000010  00800060  00000366  000003fa  2**0
                   CONTENTS, ALLOC, LOAD, DATA
- 15 .text.main    00000044  00000286  00000286  0000031a  2**1
+ 14 .text.delay_ms 00000080  0000019c  0000019c  00000230  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 16 .bss.g_TIMER0_counter 00000002  00800068  00800068  0000039e  2**0
-                  ALLOC
- 17 .text.__vector_10 0000004e  0000019c  0000019c  00000230  2**1
+ 15 .rodata       00000008  00800070  00000376  0000040a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 16 .text.main    0000004c  00000306  00000306  0000039a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 18 .text.__vector_4 0000004e  000001ea  000001ea  0000027e  2**1
+ 17 .text.__vector_10 0000004e  0000021c  0000021c  000002b0  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 19 .text.__vector_7 0000004e  00000238  00000238  000002cc  2**1
+ 18 .text.__vector_4 0000004e  0000026a  0000026a  000002fe  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.__vector_7 0000004e  000002b8  000002b8  0000034c  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
  20 .text.Timer_start 000000e8  000000b4  000000b4  00000148  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 21 .text.Timer1_COMPA_ISR_setCallBack 0000000a  000002f4  000002f4  00000388  2**1
+ 21 .text.Timer1A_CTC_flag 00000010  00000352  00000352  000003e6  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 22 .bss.g_callBackPtrTimer2CTC 00000002  0080006a  0080006a  0000039e  2**0
+ 22 .bss.g_callBackPtrTimer2CTC 00000002  00800078  00800078  00000412  2**0
                   ALLOC
- 23 .bss.g_callBackPtrTimer1COMPA 00000002  0080006c  0080006c  0000039e  2**0
+ 23 .bss.g_callBackPtrTimer1COMPA 00000002  0080007a  0080007a  00000412  2**0
                   ALLOC
- 24 .bss.g_callBackPtrTimer0CTC 00000002  0080006e  0080006e  0000039e  2**0
+ 24 .bss.g_callBackPtrTimer0CTC 00000002  0080007c  0080007c  00000412  2**0
                   ALLOC
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	0c 94 30 00 	jmp	0x60	; 0x60 <__ctors_end>
-   4:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-   8:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-   c:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-  10:	0c 94 f5 00 	jmp	0x1ea	; 0x1ea <__vector_4>
-  14:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-  18:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-  1c:	0c 94 1c 01 	jmp	0x238	; 0x238 <__vector_7>
-  20:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-  24:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-  28:	0c 94 ce 00 	jmp	0x19c	; 0x19c <__vector_10>
-  2c:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-  30:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-  34:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-  38:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-  3c:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-  40:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-  44:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-  48:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-  4c:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
-  50:	0c 94 7f 01 	jmp	0x2fe	; 0x2fe <__bad_interrupt>
+   4:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+   8:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+   c:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+  10:	0c 94 35 01 	jmp	0x26a	; 0x26a <__vector_4>
+  14:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+  18:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+  1c:	0c 94 5c 01 	jmp	0x2b8	; 0x2b8 <__vector_7>
+  20:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+  24:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+  28:	0c 94 0e 01 	jmp	0x21c	; 0x21c <__vector_10>
+  2c:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+  30:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+  34:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+  38:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+  3c:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+  40:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+  44:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+  48:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+  4c:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
+  50:	0c 94 b1 01 	jmp	0x362	; 0x362 <__bad_interrupt>
 
 00000054 <.dinit>:
   54:	00 60       	ori	r16, 0x00	; 0
-  56:	00 68       	ori	r16, 0x80	; 128
+  56:	00 78       	andi	r16, 0x80	; 128
   58:	00 03       	mulsu	r16, r16
-  5a:	02 00       	.word	0x0002	; ????
-  5c:	68 00       	.word	0x0068	; ????
-  5e:	70 80       	ld	r7, Z
+  5a:	66 00       	.word	0x0066	; ????
+  5c:	78 00       	.word	0x0078	; ????
+  5e:	7e 80       	ldd	r7, Y+6	; 0x06
 
 00000060 <__ctors_end>:
   60:	11 24       	eor	r1, r1
@@ -128,7 +128,7 @@ Disassembly of section .text:
   a2:	e0 36       	cpi	r30, 0x60	; 96
   a4:	f4 07       	cpc	r31, r20
   a6:	31 f7       	brne	.-52     	; 0x74 <__do_copy_data+0x8>
-  a8:	0e 94 43 01 	call	0x286	; 0x286 <main>
+  a8:	0e 94 83 01 	call	0x306	; 0x306 <main>
   ac:	0c 94 58 00 	jmp	0xb0	; 0xb0 <_exit>
 
 000000b0 <_exit>:
@@ -139,218 +139,299 @@ Disassembly of section .text:
 
 Disassembly of section .text:
 
-000002fe <__bad_interrupt>:
- 2fe:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+00000362 <__bad_interrupt>:
+ 362:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-Disassembly of section .text.TIMER1_ISR:
+Disassembly of section .text.delay_ms:
 
-000002ca <TIMER1_ISR>:
+0000019c <delay_ms>:
+/* if you want delay more than 250us use delay_ms  */
 
-/* default FCPU  = 1 Mhz */
-uint32_t g_TIMER0_counter = 0 ;
-void TIMER1_ISR(void)
+
+/* Enter delay in Milliseconds */
+void delay_ms(uint16_t delay)
 {
-		g_TIMER0_counter++;
- 2ca:	80 91 68 00 	lds	r24, 0x0068	; 0x800068 <g_TIMER0_counter>
- 2ce:	90 91 69 00 	lds	r25, 0x0069	; 0x800069 <g_TIMER0_counter+0x1>
- 2d2:	01 96       	adiw	r24, 0x01	; 1
- 2d4:	90 93 69 00 	sts	0x0069, r25	; 0x800069 <g_TIMER0_counter+0x1>
- 2d8:	80 93 68 00 	sts	0x0068, r24	; 0x800068 <g_TIMER0_counter>
-		if(g_TIMER0_counter == 1500)
- 2dc:	8c 3d       	cpi	r24, 0xDC	; 220
- 2de:	95 40       	sbci	r25, 0x05	; 5
- 2e0:	41 f4       	brne	.+16     	; 0x2f2 <TIMER1_ISR+0x28>
+ 19c:	ef 92       	push	r14
+ 19e:	ff 92       	push	r15
+ 1a0:	0f 93       	push	r16
+ 1a2:	1f 93       	push	r17
+ 1a4:	cf 93       	push	r28
+ 1a6:	df 93       	push	r29
+ 1a8:	cd b7       	in	r28, 0x3d	; 61
+ 1aa:	de b7       	in	r29, 0x3e	; 62
+ 1ac:	28 97       	sbiw	r28, 0x08	; 8
+ 1ae:	0f b6       	in	r0, 0x3f	; 63
+ 1b0:	f8 94       	cli
+ 1b2:	de bf       	out	0x3e, r29	; 62
+ 1b4:	0f be       	out	0x3f, r0	; 63
+ 1b6:	cd bf       	out	0x3d, r28	; 61
+ 1b8:	7c 01       	movw	r14, r24
+	uint16_t counter=  0;
+	/* configure timer to count to  100usec  */
+	St_Config_Timer_t timer0_config1 = {TIMER1, COMPARE_MODE_toggel , INTERNAL_CLK_PRESCALAR0_1 , DEFAULT_INITIAL_VALUE,100,CHANNEL_A};
+ 1ba:	88 e0       	ldi	r24, 0x08	; 8
+ 1bc:	e0 e6       	ldi	r30, 0x60	; 96
+ 1be:	f0 e0       	ldi	r31, 0x00	; 0
+ 1c0:	de 01       	movw	r26, r28
+ 1c2:	11 96       	adiw	r26, 0x01	; 1
+ 1c4:	01 90       	ld	r0, Z+
+ 1c6:	0d 92       	st	X+, r0
+ 1c8:	8a 95       	dec	r24
+ 1ca:	e1 f7       	brne	.-8      	; 0x1c4 <delay_ms+0x28>
+
+	Timer_start(&timer0_config1);
+ 1cc:	ce 01       	movw	r24, r28
+ 1ce:	01 96       	adiw	r24, 0x01	; 1
+ 1d0:	0e 94 5a 00 	call	0xb4	; 0xb4 <_etext>
+
+
+/* Enter delay in Milliseconds */
+void delay_ms(uint16_t delay)
+{
+	uint16_t counter=  0;
+ 1d4:	00 e0       	ldi	r16, 0x00	; 0
+ 1d6:	10 e0       	ldi	r17, 0x00	; 0
+	St_Config_Timer_t timer0_config1 = {TIMER1, COMPARE_MODE_toggel , INTERNAL_CLK_PRESCALAR0_1 , DEFAULT_INITIAL_VALUE,100,CHANNEL_A};
+
+	Timer_start(&timer0_config1);
+	 while(1)
 		{
-			TOGGLE_BIT(PORTC, PC0);
- 2e2:	95 b3       	in	r25, 0x15	; 21
- 2e4:	81 e0       	ldi	r24, 0x01	; 1
- 2e6:	89 27       	eor	r24, r25
- 2e8:	85 bb       	out	0x15, r24	; 21
-			g_TIMER0_counter = 0;
- 2ea:	10 92 69 00 	sts	0x0069, r1	; 0x800069 <g_TIMER0_counter+0x1>
- 2ee:	10 92 68 00 	sts	0x0068, r1	; 0x800068 <g_TIMER0_counter>
- 2f2:	08 95       	ret
+			if(Timer1A_CTC_flag())
+ 1d8:	0e 94 a9 01 	call	0x352	; 0x352 <Timer1A_CTC_flag>
+ 1dc:	88 23       	and	r24, r24
+ 1de:	e1 f3       	breq	.-8      	; 0x1d8 <delay_ms+0x3c>
+			{
+				 counter++;
+ 1e0:	0f 5f       	subi	r16, 0xFF	; 255
+ 1e2:	1f 4f       	sbci	r17, 0xFF	; 255
+				if(counter == delay * 10  )
+ 1e4:	c7 01       	movw	r24, r14
+ 1e6:	88 0f       	add	r24, r24
+ 1e8:	99 1f       	adc	r25, r25
+ 1ea:	88 0f       	add	r24, r24
+ 1ec:	99 1f       	adc	r25, r25
+ 1ee:	88 0f       	add	r24, r24
+ 1f0:	99 1f       	adc	r25, r25
+ 1f2:	97 01       	movw	r18, r14
+ 1f4:	22 0f       	add	r18, r18
+ 1f6:	33 1f       	adc	r19, r19
+ 1f8:	82 0f       	add	r24, r18
+ 1fa:	93 1f       	adc	r25, r19
+ 1fc:	08 17       	cp	r16, r24
+ 1fe:	19 07       	cpc	r17, r25
+ 200:	59 f7       	brne	.-42     	; 0x1d8 <delay_ms+0x3c>
+				}
+		
+			}
+		
+		}
+}
+ 202:	28 96       	adiw	r28, 0x08	; 8
+ 204:	0f b6       	in	r0, 0x3f	; 63
+ 206:	f8 94       	cli
+ 208:	de bf       	out	0x3e, r29	; 62
+ 20a:	0f be       	out	0x3f, r0	; 63
+ 20c:	cd bf       	out	0x3d, r28	; 61
+ 20e:	df 91       	pop	r29
+ 210:	cf 91       	pop	r28
+ 212:	1f 91       	pop	r17
+ 214:	0f 91       	pop	r16
+ 216:	ff 90       	pop	r15
+ 218:	ef 90       	pop	r14
+ 21a:	08 95       	ret
 
 Disassembly of section .text.main:
 
-00000286 <main>:
+00000306 <main>:
+			g_TIMER0_counter = 0;
 		}	
 }
 
 int main(void)
 {
- 286:	cf 93       	push	r28
- 288:	df 93       	push	r29
- 28a:	cd b7       	in	r28, 0x3d	; 61
- 28c:	de b7       	in	r29, 0x3e	; 62
- 28e:	28 97       	sbiw	r28, 0x08	; 8
- 290:	0f b6       	in	r0, 0x3f	; 63
- 292:	f8 94       	cli
- 294:	de bf       	out	0x3e, r29	; 62
- 296:	0f be       	out	0x3f, r0	; 63
- 298:	cd bf       	out	0x3d, r28	; 61
+ 306:	cf 93       	push	r28
+ 308:	df 93       	push	r29
+ 30a:	cd b7       	in	r28, 0x3d	; 61
+ 30c:	de b7       	in	r29, 0x3e	; 62
+ 30e:	28 97       	sbiw	r28, 0x08	; 8
+ 310:	0f b6       	in	r0, 0x3f	; 63
+ 312:	f8 94       	cli
+ 314:	de bf       	out	0x3e, r29	; 62
+ 316:	0f be       	out	0x3f, r0	; 63
+ 318:	cd bf       	out	0x3d, r28	; 61
 	
 	SET_BIT(DDRC, PC0); // Configure the led pin as output pin.
- 29a:	84 b3       	in	r24, 0x14	; 20
- 29c:	81 60       	ori	r24, 0x01	; 1
- 29e:	84 bb       	out	0x14, r24	; 20
+ 31a:	84 b3       	in	r24, 0x14	; 20
+ 31c:	81 60       	ori	r24, 0x01	; 1
+ 31e:	84 bb       	out	0x14, r24	; 20
 	CLEAR_BIT(PORTC, PC0); // LED is OFF at the beginning (Positive Logic).	
- 2a0:	85 b3       	in	r24, 0x15	; 21
- 2a2:	8e 7f       	andi	r24, 0xFE	; 254
- 2a4:	85 bb       	out	0x15, r24	; 21
-	
-	
-	
-	//Interrupt
-	Timer1_COMPA_ISR_setCallBack(TIMER1_ISR);
- 2a6:	85 e6       	ldi	r24, 0x65	; 101
- 2a8:	91 e0       	ldi	r25, 0x01	; 1
- 2aa:	0e 94 7a 01 	call	0x2f4	; 0x2f4 <Timer1_COMPA_ISR_setCallBack>
+ 320:	85 b3       	in	r24, 0x15	; 21
+ 322:	8e 7f       	andi	r24, 0xFE	; 254
+ 324:	85 bb       	out	0x15, r24	; 21
 	St_Config_Timer_t timer0_config1 = {TIMER1, COMPARE_MODE_toggel , INTERNAL_CLK_PRESCALAR0_1 , DEFAULT_INITIAL_VALUE,200,CHANNEL_A};
- 2ae:	88 e0       	ldi	r24, 0x08	; 8
- 2b0:	e0 e6       	ldi	r30, 0x60	; 96
- 2b2:	f0 e0       	ldi	r31, 0x00	; 0
- 2b4:	de 01       	movw	r26, r28
- 2b6:	11 96       	adiw	r26, 0x01	; 1
- 2b8:	01 90       	ld	r0, Z+
- 2ba:	0d 92       	st	X+, r0
- 2bc:	8a 95       	dec	r24
- 2be:	e1 f7       	brne	.-8      	; 0x2b8 <main+0x32>
+
+	Timer_start(&timer0_config1);*/
+    
+	
+	St_Config_Timer_t timer0_config1 = {TIMER1, COMPARE_MODE_toggel , INTERNAL_CLK_PRESCALAR0_1 , DEFAULT_INITIAL_VALUE,200,CHANNEL_A};
+ 326:	88 e0       	ldi	r24, 0x08	; 8
+ 328:	e0 e7       	ldi	r30, 0x70	; 112
+ 32a:	f0 e0       	ldi	r31, 0x00	; 0
+ 32c:	de 01       	movw	r26, r28
+ 32e:	11 96       	adiw	r26, 0x01	; 1
+ 330:	01 90       	ld	r0, Z+
+ 332:	0d 92       	st	X+, r0
+ 334:	8a 95       	dec	r24
+ 336:	e1 f7       	brne	.-8      	; 0x330 <main+0x2a>
 
 	Timer_start(&timer0_config1);
- 2c0:	ce 01       	movw	r24, r28
- 2c2:	01 96       	adiw	r24, 0x01	; 1
- 2c4:	0e 94 5a 00 	call	0xb4	; 0xb4 <__data_load_end>
- 2c8:	ff cf       	rjmp	.-2      	; 0x2c8 <main+0x42>
+ 338:	ce 01       	movw	r24, r28
+ 33a:	01 96       	adiw	r24, 0x01	; 1
+ 33c:	0e 94 5a 00 	call	0xb4	; 0xb4 <_etext>
+	
+
+    while(1)
+    {
+		
+		delay_ms(500);
+ 340:	84 ef       	ldi	r24, 0xF4	; 244
+ 342:	91 e0       	ldi	r25, 0x01	; 1
+ 344:	0e 94 ce 00 	call	0x19c	; 0x19c <delay_ms>
+		TOGGLE_BIT(PORTC, PC0);
+ 348:	95 b3       	in	r25, 0x15	; 21
+ 34a:	81 e0       	ldi	r24, 0x01	; 1
+ 34c:	89 27       	eor	r24, r25
+ 34e:	85 bb       	out	0x15, r24	; 21
+ 350:	f7 cf       	rjmp	.-18     	; 0x340 <main+0x3a>
 
 Disassembly of section .text.__vector_10:
 
-0000019c <__vector_10>:
-	/* Save the address of the Call back function in a global variable */
-	g_callBackPtrTimer2CTC = a_ptr;
-}
-
-void Timer1_Overflow_ISR_setCallBack(void(*a_ptr)(void))
+0000021c <__vector_10>:
+uint8_t Timer2_OV_flag()
 {
- 19c:	1f 92       	push	r1
- 19e:	0f 92       	push	r0
- 1a0:	0f b6       	in	r0, 0x3f	; 63
- 1a2:	0f 92       	push	r0
- 1a4:	11 24       	eor	r1, r1
- 1a6:	2f 93       	push	r18
- 1a8:	3f 93       	push	r19
- 1aa:	4f 93       	push	r20
- 1ac:	5f 93       	push	r21
- 1ae:	6f 93       	push	r22
- 1b0:	7f 93       	push	r23
- 1b2:	8f 93       	push	r24
- 1b4:	9f 93       	push	r25
- 1b6:	af 93       	push	r26
- 1b8:	bf 93       	push	r27
- 1ba:	ef 93       	push	r30
- 1bc:	ff 93       	push	r31
- 1be:	e0 91 6e 00 	lds	r30, 0x006E	; 0x80006e <g_callBackPtrTimer0CTC>
- 1c2:	f0 91 6f 00 	lds	r31, 0x006F	; 0x80006f <g_callBackPtrTimer0CTC+0x1>
- 1c6:	09 95       	icall
- 1c8:	ff 91       	pop	r31
- 1ca:	ef 91       	pop	r30
- 1cc:	bf 91       	pop	r27
- 1ce:	af 91       	pop	r26
- 1d0:	9f 91       	pop	r25
- 1d2:	8f 91       	pop	r24
- 1d4:	7f 91       	pop	r23
- 1d6:	6f 91       	pop	r22
- 1d8:	5f 91       	pop	r21
- 1da:	4f 91       	pop	r20
- 1dc:	3f 91       	pop	r19
- 1de:	2f 91       	pop	r18
- 1e0:	0f 90       	pop	r0
- 1e2:	0f be       	out	0x3f, r0	; 63
- 1e4:	0f 90       	pop	r0
- 1e6:	1f 90       	pop	r1
- 1e8:	18 95       	reti
+	while(BIT_IS_CLEAR(TIFR,TOV2));
+	SET_BIT(TIFR,TOV2);
+	return 1;
+}
+ 21c:	1f 92       	push	r1
+ 21e:	0f 92       	push	r0
+ 220:	0f b6       	in	r0, 0x3f	; 63
+ 222:	0f 92       	push	r0
+ 224:	11 24       	eor	r1, r1
+ 226:	2f 93       	push	r18
+ 228:	3f 93       	push	r19
+ 22a:	4f 93       	push	r20
+ 22c:	5f 93       	push	r21
+ 22e:	6f 93       	push	r22
+ 230:	7f 93       	push	r23
+ 232:	8f 93       	push	r24
+ 234:	9f 93       	push	r25
+ 236:	af 93       	push	r26
+ 238:	bf 93       	push	r27
+ 23a:	ef 93       	push	r30
+ 23c:	ff 93       	push	r31
+ 23e:	e0 91 7c 00 	lds	r30, 0x007C	; 0x80007c <g_callBackPtrTimer0CTC>
+ 242:	f0 91 7d 00 	lds	r31, 0x007D	; 0x80007d <g_callBackPtrTimer0CTC+0x1>
+ 246:	09 95       	icall
+ 248:	ff 91       	pop	r31
+ 24a:	ef 91       	pop	r30
+ 24c:	bf 91       	pop	r27
+ 24e:	af 91       	pop	r26
+ 250:	9f 91       	pop	r25
+ 252:	8f 91       	pop	r24
+ 254:	7f 91       	pop	r23
+ 256:	6f 91       	pop	r22
+ 258:	5f 91       	pop	r21
+ 25a:	4f 91       	pop	r20
+ 25c:	3f 91       	pop	r19
+ 25e:	2f 91       	pop	r18
+ 260:	0f 90       	pop	r0
+ 262:	0f be       	out	0x3f, r0	; 63
+ 264:	0f 90       	pop	r0
+ 266:	1f 90       	pop	r1
+ 268:	18 95       	reti
 
 Disassembly of section .text.__vector_4:
 
-000001ea <__vector_4>:
- 1ea:	1f 92       	push	r1
- 1ec:	0f 92       	push	r0
- 1ee:	0f b6       	in	r0, 0x3f	; 63
- 1f0:	0f 92       	push	r0
- 1f2:	11 24       	eor	r1, r1
- 1f4:	2f 93       	push	r18
- 1f6:	3f 93       	push	r19
- 1f8:	4f 93       	push	r20
- 1fa:	5f 93       	push	r21
- 1fc:	6f 93       	push	r22
- 1fe:	7f 93       	push	r23
- 200:	8f 93       	push	r24
- 202:	9f 93       	push	r25
- 204:	af 93       	push	r26
- 206:	bf 93       	push	r27
- 208:	ef 93       	push	r30
- 20a:	ff 93       	push	r31
- 20c:	e0 91 6a 00 	lds	r30, 0x006A	; 0x80006a <g_callBackPtrTimer2CTC>
- 210:	f0 91 6b 00 	lds	r31, 0x006B	; 0x80006b <g_callBackPtrTimer2CTC+0x1>
- 214:	09 95       	icall
- 216:	ff 91       	pop	r31
- 218:	ef 91       	pop	r30
- 21a:	bf 91       	pop	r27
- 21c:	af 91       	pop	r26
- 21e:	9f 91       	pop	r25
- 220:	8f 91       	pop	r24
- 222:	7f 91       	pop	r23
- 224:	6f 91       	pop	r22
- 226:	5f 91       	pop	r21
- 228:	4f 91       	pop	r20
- 22a:	3f 91       	pop	r19
- 22c:	2f 91       	pop	r18
- 22e:	0f 90       	pop	r0
- 230:	0f be       	out	0x3f, r0	; 63
- 232:	0f 90       	pop	r0
- 234:	1f 90       	pop	r1
- 236:	18 95       	reti
+0000026a <__vector_4>:
+ 26a:	1f 92       	push	r1
+ 26c:	0f 92       	push	r0
+ 26e:	0f b6       	in	r0, 0x3f	; 63
+ 270:	0f 92       	push	r0
+ 272:	11 24       	eor	r1, r1
+ 274:	2f 93       	push	r18
+ 276:	3f 93       	push	r19
+ 278:	4f 93       	push	r20
+ 27a:	5f 93       	push	r21
+ 27c:	6f 93       	push	r22
+ 27e:	7f 93       	push	r23
+ 280:	8f 93       	push	r24
+ 282:	9f 93       	push	r25
+ 284:	af 93       	push	r26
+ 286:	bf 93       	push	r27
+ 288:	ef 93       	push	r30
+ 28a:	ff 93       	push	r31
+ 28c:	e0 91 78 00 	lds	r30, 0x0078	; 0x800078 <g_callBackPtrTimer2CTC>
+ 290:	f0 91 79 00 	lds	r31, 0x0079	; 0x800079 <g_callBackPtrTimer2CTC+0x1>
+ 294:	09 95       	icall
+ 296:	ff 91       	pop	r31
+ 298:	ef 91       	pop	r30
+ 29a:	bf 91       	pop	r27
+ 29c:	af 91       	pop	r26
+ 29e:	9f 91       	pop	r25
+ 2a0:	8f 91       	pop	r24
+ 2a2:	7f 91       	pop	r23
+ 2a4:	6f 91       	pop	r22
+ 2a6:	5f 91       	pop	r21
+ 2a8:	4f 91       	pop	r20
+ 2aa:	3f 91       	pop	r19
+ 2ac:	2f 91       	pop	r18
+ 2ae:	0f 90       	pop	r0
+ 2b0:	0f be       	out	0x3f, r0	; 63
+ 2b2:	0f 90       	pop	r0
+ 2b4:	1f 90       	pop	r1
+ 2b6:	18 95       	reti
 
 Disassembly of section .text.__vector_7:
 
-00000238 <__vector_7>:
- 238:	1f 92       	push	r1
- 23a:	0f 92       	push	r0
- 23c:	0f b6       	in	r0, 0x3f	; 63
- 23e:	0f 92       	push	r0
- 240:	11 24       	eor	r1, r1
- 242:	2f 93       	push	r18
- 244:	3f 93       	push	r19
- 246:	4f 93       	push	r20
- 248:	5f 93       	push	r21
- 24a:	6f 93       	push	r22
- 24c:	7f 93       	push	r23
- 24e:	8f 93       	push	r24
- 250:	9f 93       	push	r25
- 252:	af 93       	push	r26
- 254:	bf 93       	push	r27
- 256:	ef 93       	push	r30
- 258:	ff 93       	push	r31
- 25a:	e0 91 6c 00 	lds	r30, 0x006C	; 0x80006c <g_callBackPtrTimer1COMPA>
- 25e:	f0 91 6d 00 	lds	r31, 0x006D	; 0x80006d <g_callBackPtrTimer1COMPA+0x1>
- 262:	09 95       	icall
- 264:	ff 91       	pop	r31
- 266:	ef 91       	pop	r30
- 268:	bf 91       	pop	r27
- 26a:	af 91       	pop	r26
- 26c:	9f 91       	pop	r25
- 26e:	8f 91       	pop	r24
- 270:	7f 91       	pop	r23
- 272:	6f 91       	pop	r22
- 274:	5f 91       	pop	r21
- 276:	4f 91       	pop	r20
- 278:	3f 91       	pop	r19
- 27a:	2f 91       	pop	r18
- 27c:	0f 90       	pop	r0
- 27e:	0f be       	out	0x3f, r0	; 63
- 280:	0f 90       	pop	r0
- 282:	1f 90       	pop	r1
- 284:	18 95       	reti
+000002b8 <__vector_7>:
+ 2b8:	1f 92       	push	r1
+ 2ba:	0f 92       	push	r0
+ 2bc:	0f b6       	in	r0, 0x3f	; 63
+ 2be:	0f 92       	push	r0
+ 2c0:	11 24       	eor	r1, r1
+ 2c2:	2f 93       	push	r18
+ 2c4:	3f 93       	push	r19
+ 2c6:	4f 93       	push	r20
+ 2c8:	5f 93       	push	r21
+ 2ca:	6f 93       	push	r22
+ 2cc:	7f 93       	push	r23
+ 2ce:	8f 93       	push	r24
+ 2d0:	9f 93       	push	r25
+ 2d2:	af 93       	push	r26
+ 2d4:	bf 93       	push	r27
+ 2d6:	ef 93       	push	r30
+ 2d8:	ff 93       	push	r31
+ 2da:	e0 91 7a 00 	lds	r30, 0x007A	; 0x80007a <g_callBackPtrTimer1COMPA>
+ 2de:	f0 91 7b 00 	lds	r31, 0x007B	; 0x80007b <g_callBackPtrTimer1COMPA+0x1>
+ 2e2:	09 95       	icall
+ 2e4:	ff 91       	pop	r31
+ 2e6:	ef 91       	pop	r30
+ 2e8:	bf 91       	pop	r27
+ 2ea:	af 91       	pop	r26
+ 2ec:	9f 91       	pop	r25
+ 2ee:	8f 91       	pop	r24
+ 2f0:	7f 91       	pop	r23
+ 2f2:	6f 91       	pop	r22
+ 2f4:	5f 91       	pop	r21
+ 2f6:	4f 91       	pop	r20
+ 2f8:	3f 91       	pop	r19
+ 2fa:	2f 91       	pop	r18
+ 2fc:	0f 90       	pop	r0
+ 2fe:	0f be       	out	0x3f, r0	; 63
+ 300:	0f 90       	pop	r0
+ 302:	1f 90       	pop	r1
+ 304:	18 95       	reti
 
 Disassembly of section .text.Timer_start:
 
@@ -472,15 +553,22 @@ Disassembly of section .text.Timer_start:
  198:	8e bd       	out	0x2e, r24	; 46
  19a:	08 95       	ret
 
-Disassembly of section .text.Timer1_COMPA_ISR_setCallBack:
+Disassembly of section .text.Timer1A_CTC_flag:
 
-000002f4 <Timer1_COMPA_ISR_setCallBack>:
-}
+00000352 <Timer1A_CTC_flag>:
 
-void Timer1_COMPA_ISR_setCallBack(void(*a_ptr)(void))
+
+uint8_t Timer1A_CTC_flag()
 {
-	/* Save the address of the Call back function in a global variable */
-	g_callBackPtrTimer1COMPA = a_ptr;
- 2f4:	90 93 6d 00 	sts	0x006D, r25	; 0x80006d <g_callBackPtrTimer1COMPA+0x1>
- 2f8:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <g_callBackPtrTimer1COMPA>
- 2fc:	08 95       	ret
+	while(BIT_IS_CLEAR(TIFR,OCF1A));
+ 352:	08 b6       	in	r0, 0x38	; 56
+ 354:	04 fe       	sbrs	r0, 4
+ 356:	fd cf       	rjmp	.-6      	; 0x352 <Timer1A_CTC_flag>
+	SET_BIT(TIFR,OCF1A);
+ 358:	88 b7       	in	r24, 0x38	; 56
+ 35a:	80 61       	ori	r24, 0x10	; 16
+ 35c:	88 bf       	out	0x38, r24	; 56
+	return 1;
+}
+ 35e:	81 e0       	ldi	r24, 0x01	; 1
+ 360:	08 95       	ret

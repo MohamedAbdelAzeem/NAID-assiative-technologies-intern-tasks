@@ -1,10 +1,11 @@
-main.d main.o: .././main.c .././timer.h .././Std_Types.h \
- .././Common_Macros.h .././Regs_map.h
+main.d main.o: .././main.c .././MCAL/timer/timer.h \
+ .././MCAL/timer/Std_Types.h .././MCAL/timer/Common_Macros.h \
+ .././MCAL/timer/Regs_map.h
 
-.././timer.h:
+.././MCAL/timer/timer.h:
 
-.././Std_Types.h:
+.././MCAL/timer/Std_Types.h:
 
-.././Common_Macros.h:
+.././MCAL/timer/Common_Macros.h:
 
-.././Regs_map.h:
+.././MCAL/timer/Regs_map.h:

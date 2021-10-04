@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project>                                  
-  <executable name="Guessing Game v2.elf">                 
+  <executable name="External_Interrupts.elf">                 
     <memory name="program">              
       <units>bytes</units>                 
       <length>32768</length>                 
-      <used>2611</used>                     
-      <free>30157</free>                     
+      <used>602</used>                     
+      <free>32166</free>                     
     </memory>                              
     <memory name="data">                 
       <units>bytes</units>                 
       <length>2048</length>                 
-      <used>22</used>                     
-      <free>2026</free>                     
+      <used>2</used>                     
+      <free>2046</free>                     
     </memory>                              
   </executable>                            
 </project>                                 

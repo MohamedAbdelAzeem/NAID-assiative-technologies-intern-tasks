@@ -6,7 +6,7 @@
  *
  * Description: Header file for the Keypad driver
  *
- * Author: Mohamed Tarek
+ * Author: Mohamed AbdelAzeem
  *
  *******************************************************************************/
 
@@ -22,7 +22,7 @@
  *******************************************************************************/
 
 /* Keypad configurations for number of rows and columns */
-#define N_col 3
+#define N_col 4
 #define N_row 4
 
 /* Keypad Port Configurations */
